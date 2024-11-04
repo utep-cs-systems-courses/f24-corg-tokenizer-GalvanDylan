@@ -2,12 +2,12 @@
 #define _HISTORY_
 
 typedef struct s_Item {
-  int id;
-  char *str;
-  struct s_Item *next;
+  int id; //id
+  char *str; //users input
+  struct s_Item *next; // pointer to next node
 } Item;
 
-typedef struct s_List {
+typedef struct s_List { //root of first node
   struct s_Item *root;
 } List;
 
@@ -18,6 +18,7 @@ List* init_history();
    List* list - the linked list
    char* str - the string to store
 */
+
 void add_history(List *list, char *str);
 
 /* Retrieve the string stored in the node where Item->id == id.

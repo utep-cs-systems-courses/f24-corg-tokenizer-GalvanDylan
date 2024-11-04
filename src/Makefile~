@@ -1,0 +1,58 @@
+# Compiler
+
+CC = gcc
+
+
+
+# Compiler flags
+
+CFLAGS = -Wall -g
+
+
+
+# Target executable name
+
+TARGET = history_program
+
+
+
+# Source files
+
+SRCS = main.c history.c tokenizer.c
+
+
+
+# Object files (replace .c with .o for each source file)
+
+OBJS = $(SRCS:.c=.o)
+
+
+
+# Default target: build the project
+
+all: $(TARGET)
+
+
+
+# Link object files to create the executable
+
+$(TARGET): $(OBJS)
+
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+
+
+
+# Compile each .c file into a .o file
+
+%.o: %.c
+
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
+
+# Clean target to remove the executable and object files
+
+clean:
+
+	rm -f $(TARGET) $(OBJS)
+
